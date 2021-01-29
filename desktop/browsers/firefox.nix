@@ -1,11 +1,12 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-let cfg = config.modules.desktop.browsers.firefox;
+let
+  cfg = config.modules.desktop.browsers.firefox;
+  profileName = "user";
 in {
   options.modules.desktop.browsers.firefox = with types; {
     enable = mkEnableOption "Enable Firefox";
-    profileName = mkOption { type = types.str; default = config.user.name; };
 
     settings = mkOption {
       type = (attrsOf (oneOf [ bool int str ]));
@@ -136,7 +137,7 @@ in {
           [Profile0]
           Name=default
           IsRelative=1
-          Path=${cfg.profileName}.default
+          Path=${profileName}.default
           Default=1
 
           [General]
@@ -144,7 +145,7 @@ in {
           Version=2
         '';
 
-        "${cfgPath}/${cfg.profileName}.default/user.js" =
+        "${cfgPath}/${profileName}.default/user.js" =
           mkIf (cfg.settings != {} || cfg.extraConfig != "") {
             text = ''
               ${concatStrings (mapAttrsToList (name: value: ''
@@ -154,7 +155,7 @@ in {
             '';
           };
 
-        "${cfgPath}/${cfg.profileName}.default/chrome" =
+        "${cfgPath}/${profileName}.default/chrome" =
           mkIf (cfg.userChrome != "") {
             source = cfg.userChrome;
           };
