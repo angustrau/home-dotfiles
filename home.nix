@@ -14,6 +14,11 @@
       browsers = {
         firefox.enable = true;
       };
+      editors = {
+        default = "nano";
+        nano.enable = true;
+        vscode.enable = true;
+      };
     };
   };
 }
