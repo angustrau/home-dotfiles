@@ -5,7 +5,7 @@
   ];
 
   programs.home-manager.enable = true;
-  home.stateVersion = "20.09";
+  home.stateVersion = "21.03";
   home.username = "angustrau";
   home.homeDirectory = "/home/angustrau";
 
