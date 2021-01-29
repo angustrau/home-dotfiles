@@ -53,8 +53,6 @@ in {
         "devtools.theme" = "dark";
         # Enable userContent.css and userChrome.css for our theme modules
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        # Stop creating ~/Downloads!
-        "browser.download.dir" = "${homeDir}/dl";
         # Middle-click for fast scrolling
         "general.autoScroll" = true;
         # Don't use the built-in password manager; a nixos user is more likely
