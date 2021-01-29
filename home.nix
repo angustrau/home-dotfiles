@@ -4,8 +4,9 @@
     ./desktop
   ];
 
-  home.stateVersion = "20.09";
   programs.home-manager.enable = true;
+  home.stateVersion = "20.09";
+  home.username = "angustrau";
 
   modules = {
     desktop = {
