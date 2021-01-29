@@ -1,7 +1,7 @@
 { config, pkgs, libs, ... }:
 {
   imports = [
-    "./desktop"
+    ./desktop
   ];
 
   home.stateVersion = "20.09";
