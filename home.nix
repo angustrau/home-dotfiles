@@ -1,7 +1,7 @@
 { config, pkgs, libs, ... }:
 {
   require = [
-    ./desktop
+    ./modules
   ];
 
   programs.home-manager.enable = true;
