@@ -5,7 +5,7 @@
 with lib;
 let
   cfg = config.modules.editors.vscode;
-  vscode-extensions = with pkgs.unstable.vscode-extensions; [
+  vscode-extensions = with pkgs.vscode-extensions; [
     ms-vsliveshare.vsliveshare
   ];
 in {
