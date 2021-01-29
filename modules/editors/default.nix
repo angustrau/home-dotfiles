@@ -3,6 +3,7 @@ with lib;
 let cfg = config.modules.editors;
 in {
   imports = [
+    ./nano.nix
     ./vscode.nix
   ];
 
