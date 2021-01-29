@@ -1,5 +1,6 @@
 { options, config, lib, pkgs, ... }:
 
+with lib;
 let cfg = config.modules.desktop.browsers.firefox;
 in {
   options.modules.desktop.browsers.firefox = with types; {
