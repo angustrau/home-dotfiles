@@ -24,7 +24,7 @@ in {
       '';
     };
 
-    useChrome = mkOption {
+    userChrome = mkOption {
       type = lines;
       default = "";
       description = "CSS Styles for Firefox's interface";
