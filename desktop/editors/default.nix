@@ -14,6 +14,6 @@ in {
   };
 
   config = mkIf (cfg.default != null) {
-    env.EDITOR = cfg.default;
+    home.sessionVariables.EDITOR = cfg.default;
   };
 }
