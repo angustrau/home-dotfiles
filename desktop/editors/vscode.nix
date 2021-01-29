@@ -14,7 +14,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.programs.vscode = {
+    programs.vscode = {
       enable = true;
       extensions = vscode-extensions;
     };
