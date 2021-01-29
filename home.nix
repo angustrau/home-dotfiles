@@ -7,6 +7,7 @@
   programs.home-manager.enable = true;
   home.stateVersion = "20.09";
   home.username = "angustrau";
+  home.homeDirectory = "/home/angustrau";
 
   modules = {
     desktop = {
