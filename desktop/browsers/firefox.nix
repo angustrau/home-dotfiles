@@ -4,17 +4,30 @@ with lib;
 let cfg = config.modules.desktop.browsers.firefox;
 in {
   options.modules.desktop.browsers.firefox = with types; {
-    enable = mkBoolOpt false;
-    profileName = mkOpt types.str config.user.name;
+    enable = mkEnableOption "Enable Firefox";
+    profileName = mkOption { type = types.str; default = config.user.name; };
 
-    settings = mkOpt' (attrsOf (oneOf [ bool int str ])) {} ''
+    settings = mkOption {
+      type = (attrsOf (oneOf [ bool int str ]));
+      default = {};
+      description = ''
       Firefox preferences to set in <filename>user.js</filename>
     '';
-    extraConfig = mkOpt' lines "" ''
-      Extra lines to add to <filename>user.js</filename>
-    '';
+    };
 
-    userChrome  = mkOpt' lines "" "CSS Styles for Firefox's interface";
+    extraConfig = mkOption {
+      type = lines;
+      default = "";
+      description = ''
+        Extra lines to add to <filename>user.js</filename>
+      '';
+    };
+
+    useChrome = mkOption {
+      type = lines;
+      default = "";
+      description = "CSS Styles for Firefox's interface";
+    };
   };
 
   config = mkIf cfg.enable (mkMerge [
